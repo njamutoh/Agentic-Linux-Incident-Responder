@@ -4,13 +4,6 @@ A hands-on **Agentic SRE lab** demonstrating how an AI agent can investigate a L
 
 The project runs on **RHEL 9.8** and uses **Pi, Superpowers, Open Plan Annotator, systemd, Bash, sudo controls, Git, and GitHub**.
 
----
-
-## Visual Overview
-
-![Agentic SRE Workflow](docs/screenshots/agentic-sre-workflow.png)
-
----
 
 ## The Incident
 
