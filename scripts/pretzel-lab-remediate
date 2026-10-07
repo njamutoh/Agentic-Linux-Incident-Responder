@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cp -a /etc/systemd/system/pretzel-api.service \
+  /etc/systemd/system/pretzel-api.service.incident-20261006.bak
+
+install -d -o root -g root -m 0755 /opt/pretzel/bin
+
+cat >/opt/pretzel/bin/pretzel-api <<'SCRIPT'
+#!/usr/bin/env bash
+set -euo pipefail
+echo "pretzel-api lab service started: pid=$$"
+trap 'echo "pretzel-api lab service stopping"; exit 0' TERM INT
+while true; do
+  sleep 3600 &
+  wait "$!"
+done
+SCRIPT
+
+chown root:root /opt/pretzel/bin/pretzel-api
+chmod 0755 /opt/pretzel/bin/pretzel-api
+
+systemctl restart pretzel-api.service

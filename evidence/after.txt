@@ -1,0 +1,195 @@
+# Post-remediation evidence: pretzel-api.service lab incident
+2026-10-06T20:37:46-06:00
+## final agent-executed remediation command
+sudo -n /usr/local/sbin/pretzel-lab-remediate
+helper exit code: 0
+## executable path
+-rwxr-xr-x. 1 root root 196 Oct  6 20:37 /opt/pretzel/bin/pretzel-api
+  File: /opt/pretzel/bin/pretzel-api
+  Size: 196       	Blocks: 8          IO Block: 4096   regular file
+Device: fd00h/64768d	Inode: 108885349   Links: 1
+Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Context: unconfined_u:object_r:usr_t:s0
+Access: 2026-10-06 20:37:43.103582553 -0600
+Modify: 2026-10-06 20:37:43.057583680 -0600
+Change: 2026-10-06 20:37:43.074583263 -0600
+ Birth: 2026-10-06 20:37:43.055583729 -0600
+## executable syntax
+## unit
+# /etc/systemd/system/pretzel-api.service
+[Unit]
+Description=Pretzel Shop API
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/pretzel/bin/pretzel-api
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+## service state attempts
+--- service state attempt 1 ---
+active
+MainPID=299383
+Result=success
+ExecMainStatus=0
+ExecStart={ path=/opt/pretzel/bin/pretzel-api ; argv[]=/opt/pretzel/bin/pretzel-api ; ignore_errors=no ; start_time=[Tue 2026-10-06 20:37:43 MDT] ; stop_time=[n/a] ; pid=299383 ; code=(null) ; status=0/0 }
+ActiveState=active
+SubState=running
+--- service state attempt 2 ---
+active
+MainPID=299383
+Result=success
+ExecMainStatus=0
+ExecStart={ path=/opt/pretzel/bin/pretzel-api ; argv[]=/opt/pretzel/bin/pretzel-api ; ignore_errors=no ; start_time=[Tue 2026-10-06 20:37:43 MDT] ; stop_time=[n/a] ; pid=299383 ; code=(null) ; status=0/0 }
+ActiveState=active
+SubState=running
+--- service state attempt 3 ---
+active
+MainPID=299383
+Result=success
+ExecMainStatus=0
+ExecStart={ path=/opt/pretzel/bin/pretzel-api ; argv[]=/opt/pretzel/bin/pretzel-api ; ignore_errors=no ; start_time=[Tue 2026-10-06 20:37:43 MDT] ; stop_time=[n/a] ; pid=299383 ; code=(null) ; status=0/0 }
+ActiveState=active
+SubState=running
+## status
+● pretzel-api.service - Pretzel Shop API
+     Loaded: loaded (/etc/systemd/system/pretzel-api.service; enabled; preset: disabled)
+     Active: active (running) since Tue 2026-10-06 20:37:43 MDT; 9s ago
+   Main PID: 299383 (bash)
+      Tasks: 2 (limit: 48540)
+     Memory: 576.0K (peak: 760.0K)
+        CPU: 9ms
+     CGroup: /system.slice/pretzel-api.service
+             ├─299383 bash /opt/pretzel/bin/pretzel-api
+             └─299384 sleep 3600
+
+Oct 06 20:37:43 node1 systemd[1]: Started Pretzel Shop API.
+Oct 06 20:37:43 node1 pretzel-api[299383]: pretzel-api lab service started: pid=299383
+## recent journal
+2026-10-06T20:36:49-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 100.
+2026-10-06T20:36:49-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:36:49-0600 node1 systemd[299340]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:36:49-0600 node1 systemd[299340]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:36:49-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:36:49-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:36:49-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:36:52-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 101.
+2026-10-06T20:36:52-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:36:52-0600 node1 systemd[299341]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:36:52-0600 node1 systemd[299341]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:36:52-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:36:52-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:36:52-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:36:56-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 102.
+2026-10-06T20:36:56-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:36:56-0600 node1 systemd[299342]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:36:56-0600 node1 systemd[299342]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:36:56-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:36:56-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:36:56-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:36:59-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 103.
+2026-10-06T20:36:59-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:36:59-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:36:59-0600 node1 systemd[299343]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:36:59-0600 node1 systemd[299343]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:36:59-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:36:59-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:02-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 104.
+2026-10-06T20:37:02-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:02-0600 node1 systemd[299344]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:02-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:02-0600 node1 systemd[299344]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:02-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:02-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:05-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 105.
+2026-10-06T20:37:05-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:05-0600 node1 systemd[299347]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:05-0600 node1 systemd[299347]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:05-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:05-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:05-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:09-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 106.
+2026-10-06T20:37:09-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:09-0600 node1 systemd[299348]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:09-0600 node1 systemd[299348]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:09-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:09-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:09-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:12-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 107.
+2026-10-06T20:37:12-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:12-0600 node1 systemd[299349]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:12-0600 node1 systemd[299349]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:12-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:12-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:12-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:15-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 108.
+2026-10-06T20:37:15-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:15-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:15-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:15-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:18-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 109.
+2026-10-06T20:37:18-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:18-0600 node1 systemd[299351]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:18-0600 node1 systemd[299351]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:18-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:18-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:18-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:22-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 110.
+2026-10-06T20:37:22-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:22-0600 node1 systemd[299354]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:22-0600 node1 systemd[299354]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:22-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:22-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:22-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:25-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 111.
+2026-10-06T20:37:25-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:25-0600 node1 systemd[299355]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:25-0600 node1 systemd[299355]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:25-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:25-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:25-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:28-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 112.
+2026-10-06T20:37:28-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:28-0600 node1 systemd[299356]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:28-0600 node1 systemd[299356]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:28-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:28-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:28-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:31-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 113.
+2026-10-06T20:37:31-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:31-0600 node1 systemd[299357]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:31-0600 node1 systemd[299357]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:31-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:31-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:31-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:35-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 114.
+2026-10-06T20:37:35-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:35-0600 node1 systemd[299363]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:35-0600 node1 systemd[299363]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:35-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:35-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:35-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:38-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 115.
+2026-10-06T20:37:38-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:38-0600 node1 systemd[299364]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:38-0600 node1 systemd[299364]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:38-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:38-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:38-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:41-0600 node1 systemd[1]: pretzel-api.service: Scheduled restart job, restart counter is at 116.
+2026-10-06T20:37:41-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:41-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:41-0600 node1 systemd[299365]: pretzel-api.service: Failed to locate executable /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:41-0600 node1 systemd[299365]: pretzel-api.service: Failed at step EXEC spawning /opt/pretzel/bin/pretzel-api: No such file or directory
+2026-10-06T20:37:41-0600 node1 systemd[1]: pretzel-api.service: Main process exited, code=exited, status=203/EXEC
+2026-10-06T20:37:41-0600 node1 systemd[1]: pretzel-api.service: Failed with result 'exit-code'.
+2026-10-06T20:37:43-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:43-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:43-0600 node1 pretzel-api[299383]: pretzel-api lab service started: pid=299383
+## journal since agent-executed remediation
+2026-10-06T20:37:43-0600 node1 systemd[1]: Stopped Pretzel Shop API.
+2026-10-06T20:37:43-0600 node1 systemd[1]: Started Pretzel Shop API.
+2026-10-06T20:37:43-0600 node1 pretzel-api[299383]: pretzel-api lab service started: pid=299383
